@@ -1,3 +1,4 @@
+"use client";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CourseCard from "../components/CourseCard";
@@ -38,7 +39,7 @@ export default function Home() {
       <Navbar />
       <main className="bg-gray-50">
         {/* Hero Section */}
-        <section
+<section
   className="relative bg-blue-900 text-white text-center py-24 px-4"
   style={{ backgroundImage: "url('/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
 >
@@ -51,12 +52,24 @@ export default function Home() {
       Gain practical skills and real-world experience with SkillBee programs.
     </p>
     <div className="space-x-4">
-      <button className="bg-white text-blue-900 font-semibold px-6 py-3 rounded hover:bg-gray-100">
+      {/* Enquire Now → trigger the same enquiry form modal */}
+      <button
+        onClick={() => document.getElementById("enquiry-form")?.classList.remove("hidden")}
+        className="bg-white text-blue-900 font-semibold px-6 py-3 rounded hover:bg-gray-100"
+      >
         Enquire Now
       </button>
-      <button className="bg-green-500 text-white font-semibold px-6 py-3 rounded hover:bg-green-600">
-        Contact via WhatsApp
-      </button>
+
+      {/* WhatsApp Chat → opens WhatsApp with UK number */}
+      <a
+        href="https://wa.me/447915266698?text=Hi%20SkillBee!%20I%20would%20like%20to%20know%20more%20about%20your%20programs."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <button className="bg-green-500 text-white font-semibold px-6 py-3 rounded hover:bg-green-600">
+          Contact via WhatsApp
+        </button>
+      </a>
     </div>
   </div>
 </section>
