@@ -1,16 +1,17 @@
 "use client";
 import React, { useState } from "react";
-import { CheckCircle } from "lucide-react"; // icon for outcomes
+import { CheckCircle } from "lucide-react"; 
 import EnquiryForm from "./EnquiryForm";
 import WhatsAppButton from "./WhatsAppButton";
 
 interface CourseCardProps {
   title: string;
   outcomes: string[];
-  whatsappMessage: string;
+  career?: string; // ✅ optional now
+  whatsappMessage?: string; // ✅ optional now
 }
 
-export default function CourseCard({ title, outcomes, whatsappMessage }: CourseCardProps) {
+export default function CourseCard({ title, outcomes, whatsappMessage, career }: CourseCardProps) {
   const [openForm, setOpenForm] = useState(false);
 
   return (
@@ -20,7 +21,7 @@ export default function CourseCard({ title, outcomes, whatsappMessage }: CourseC
         <h3 className="text-2xl font-semibold text-gray-900 mb-4">{title}</h3>
 
         {/* Outcomes */}
-        <ul className="space-y-2 mb-6 text-sm text-gray-700">
+        <ul className="space-y-2 mb-4 text-sm text-gray-700">
           {outcomes.map((point, index) => (
             <li key={index} className="flex items-start gap-2">
               <CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />
@@ -28,6 +29,13 @@ export default function CourseCard({ title, outcomes, whatsappMessage }: CourseC
             </li>
           ))}
         </ul>
+
+        {/* Career (render only if provided) */}
+        {career && (
+          <p className="text-sm text-gray-800 mb-6">
+            <span className="font-medium text-gray-900">Career Path:</span> {career}
+          </p>
+        )}
 
         {/* Buttons */}
         <div className="flex gap-3 mt-auto">
@@ -37,11 +45,10 @@ export default function CourseCard({ title, outcomes, whatsappMessage }: CourseC
           >
             Enquire Now
           </button>
-          <WhatsAppButton message={whatsappMessage} />
+          {whatsappMessage && <WhatsAppButton message={whatsappMessage} />}
         </div>
       </div>
 
-      {/* Enquiry Form */}
       {openForm && <EnquiryForm courseName={title} onClose={() => setOpenForm(false)} />}
     </>
   );
