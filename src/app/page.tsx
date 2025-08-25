@@ -38,18 +38,28 @@ export default function Home() {
       <Navbar />
       <main className="bg-gray-50">
         {/* Hero Section */}
-        <section className="bg-blue-900 text-white text-center py-24 px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Where Skills Meet Opportunity</h1>
-          <p className="mb-8 text-lg md:text-xl">Gain practical skills and real-world experience with SkillBee programs.</p>
-          <div className="space-x-4">
-            <button className="bg-white text-blue-900 font-semibold px-6 py-3 rounded hover:bg-gray-100">
-              Enquire Now
-            </button>
-            <button className="bg-green-500 text-white font-semibold px-6 py-3 rounded hover:bg-green-600">
-              Contact via WhatsApp
-            </button>
-          </div>
-        </section>
+        <section
+  className="relative bg-blue-900 text-white text-center py-24 px-4"
+  style={{ backgroundImage: "url('/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
+>
+  <div className="absolute inset-0 bg-black/50"></div> {/* overlay for better text visibility */}
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-6xl font-bold mb-6">
+      Where Skills Meet Opportunity
+    </h1>
+    <p className="mb-8 text-lg md:text-xl">
+      Gain practical skills and real-world experience with SkillBee programs.
+    </p>
+    <div className="space-x-4">
+      <button className="bg-white text-blue-900 font-semibold px-6 py-3 rounded hover:bg-gray-100">
+        Enquire Now
+      </button>
+      <button className="bg-green-500 text-white font-semibold px-6 py-3 rounded hover:bg-green-600">
+        Contact via WhatsApp
+      </button>
+    </div>
+  </div>
+</section>
 
         {/* Featured Courses Section */}
 <section className="max-w-7xl mx-auto py-20 px-4">
