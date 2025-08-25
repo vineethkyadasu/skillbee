@@ -1,103 +1,212 @@
-import Image from "next/image";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import CourseCard from "../components/CourseCard";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const featuredCourses = [
+    {
+      title: "Generative AI (Gen AI)",
+      outcomes: [
+        "Understand large language models, prompt engineering, and AI content creation.",
+        "Apply AI tools for automation, analytics, and innovation."
+      ],
+      whatsappMessage: "Hi SkillBee, I’m interested in the Generative AI course. Please share more details."
+    },
+    {
+      title: "Power BI + SQL",
+      outcomes: [
+        "Create interactive dashboards and reports in Power BI.",
+        "Write optimized SQL queries for data extraction."
+      ],
+      whatsappMessage: "Hi SkillBee, I’m interested in the Power BI + SQL course. Please share more details."
+    },
+    {
+      title: "AWS Data Engineering",
+      outcomes: [
+        "Design and manage data pipelines using AWS services.",
+        "Implement scalable analytics solutions."
+      ],
+      whatsappMessage: "Hi SkillBee, I’m interested in the AWS Data Engineering course. Please share more details."
+    }
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <>
+      <Navbar />
+      <main className="bg-gray-50">
+        {/* Hero Section */}
+        <section className="bg-black text-white text-center py-24 px-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Where Skills Meet Opportunity
+          </h1>
+          <p className="mb-8 text-lg md:text-xl">
+            Gain practical skills and real-world experience with SkillBee programs.
+          </p>
+          <div className="space-x-4">
+            <button className="bg-yellow-500 text-black font-semibold px-6 py-3 rounded hover:bg-yellow-600">
+              Enquire Now
+            </button>
+            <button className="bg-black border-2 border-yellow-500 text-yellow-500 font-semibold px-6 py-3 rounded hover:bg-yellow-600 hover:text-black">
+              Contact via WhatsApp
+            </button>
+          </div>
+        </section>
+
+        {/* Featured Courses Section */}
+        <section className="max-w-7xl mx-auto py-20 px-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900">
+            Featured Courses
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 text-center max-w-2xl mx-auto mt-4 mb-12">
+            Explore our most popular programs designed to boost your skills and career opportunities.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {featuredCourses.map((course, index) => (
+              <CourseCard key={index} {...course} />
+            ))}
+          </div>
+        </section>
+
+        {/* Why Choose Us Section */}
+        <section className="bg-gray-50 py-20 px-6 md:px-12">
+          <div className="max-w-6xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
+              Why Choose <span className="text-yellow-500">SkillBee</span>?
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Card 1 */}
+              <div className="bg-white p-8 rounded-2xl shadow transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <div className="flex justify-center mb-4">
+                  <svg
+                    className="w-12 h-12 text-yellow-500"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 6V4m0 2a8 8 0 100 16 8 8 0 000-16zm0 0v2m0 4h.01" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-3">
+                  Career-Focused Learning
+                </h3>
+                <p className="text-gray-700 text-base">
+                  Our programs are designed with real-world industry needs in mind to help you grow your career.
+                </p>
+              </div>
+
+              {/* Card 2 */}
+              <div className="bg-white p-8 rounded-2xl shadow transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <div className="flex justify-center mb-4">
+                  <svg
+                    className="w-12 h-12 text-black"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 11c0-1.104.896-2 2-2h4V7h-4a4 4 0 00-4 4v4h-2v4h2v6h4v-6h2l1-4h-3z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-3">
+                  Expert Mentors
+                </h3>
+                <p className="text-gray-700 text-base">
+                  Learn directly from industry experts and experienced trainers who guide you every step.
+                </p>
+              </div>
+
+              {/* Card 3 */}
+              <div className="bg-white p-8 rounded-2xl shadow transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <div className="flex justify-center mb-4">
+                  <svg
+                    className="w-12 h-12 text-yellow-500"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2l2.09 6.26H20l-5 3.64L16.18 18 12 14.77 7.82 18 9 11.9l-5-3.64h5.91z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-yellow-600 mb-3">
+                  Globally Recognized Certification
+                </h3>
+                <p className="text-gray-700 text-base">
+                  Earn certificates that are valued and recognized by top companies worldwide.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+{/* Testimonials Section */}
+<section className="bg-white py-20 px-6 md:px-12">
+  <div className="max-w-6xl mx-auto text-center">
+    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
+      What Our <span className="text-yellow-500">Students Say</span>
+    </h2>
+
+    <div className="grid md:grid-cols-3 gap-8">
+      {/* Testimonial 1 */}
+      <div className="bg-gray-50 p-8 rounded-2xl shadow hover:shadow-xl transition">
+        <p className="text-gray-700 italic mb-6">
+          “SkillBee helped me land my first digital marketing job! The mentors were supportive and the content was very practical.”
+        </p>
+        <div className="flex items-center justify-center gap-3">
+          <img
+            src="/student1.jpg"
+            alt="Student"
+            className="w-12 h-12 rounded-full object-cover"
+          />
+          <div className="text-left">
+            <h4 className="font-semibold text-gray-900">Aditi Sharma</h4>
+            <p className="text-sm text-gray-600">Digital Marketer at Zomato</p>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </div>
+
+      {/* Testimonial 2 */}
+      <div className="bg-gray-50 p-8 rounded-2xl shadow hover:shadow-xl transition">
+        <p className="text-gray-700 italic mb-6">
+          “The Data Analytics course gave me real skills that I applied in my job. Highly recommend SkillBee for career growth.”
+        </p>
+        <div className="flex items-center justify-center gap-3">
+          <img
+            src="/student2.jpg"
+            alt="Student"
+            className="w-12 h-12 rounded-full object-cover"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <div className="text-left">
+            <h4 className="font-semibold text-gray-900">Rohan Verma</h4>
+            <p className="text-sm text-gray-600">Business Analyst at TCS</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Testimonial 3 */}
+      <div className="bg-gray-50 p-8 rounded-2xl shadow hover:shadow-xl transition">
+        <p className="text-gray-700 italic mb-6">
+          “The certification added great value to my resume. I was able to switch to a better company with SkillBee’s help.”
+        </p>
+        <div className="flex items-center justify-center gap-3">
+          <img
+            src="/student3.jpg"
+            alt="Student"
+            className="w-12 h-12 rounded-full object-cover"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <div className="text-left">
+            <h4 className="font-semibold text-gray-900">Sneha Patel</h4>
+            <p className="text-sm text-gray-600">HR Specialist at Infosys</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
+      </main>
+      <Footer />
+    </>
   );
 }
