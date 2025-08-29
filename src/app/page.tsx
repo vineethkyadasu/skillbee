@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import EnquiryForm from "./EnquiryForm";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CourseCard from "../components/CourseCard";
