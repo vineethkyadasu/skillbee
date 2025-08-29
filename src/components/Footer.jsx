@@ -10,6 +10,7 @@ const Footer = () => {
     { name: "Courses", href: "/courses" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
   ];
 
   return (
@@ -48,8 +49,8 @@ LTD.Registered in England & Wales. Company No. 16244546.
         {/* Contact Info */}
         <div>
           <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
-          <p className="text-gray-300 text-sm">📧 info@skillbee.com</p>
-          <p className="text-gray-300 text-sm">📞 +91 98765 43210</p>
+          <p className="text-gray-300 text-sm">📧 Info@skillbee.co.uk</p>
+          <p className="text-gray-300 text-sm">📞 +447915266698</p>
         </div>
       </div>
 

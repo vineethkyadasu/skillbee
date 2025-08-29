@@ -1,41 +1,177 @@
 "use client";
 import React, { useState } from "react";
 import CourseCard from "@/components/CourseCard";
-import Navbar from "@/components/Navbar";  // ✅ import Navbar
-import Footer from "@/components/Footer";  // ✅ import Footer
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const CoursesPage = () => {
   const [search, setSearch] = useState("");
 
   const courses = [
-    { title: "Informatica PowerCenter", outcomes: ["Master ETL workflows, transformations, and performance tuning.","Build enterprise-level data integration pipelines."], career: "Prepares learners for data engineering and analytics roles in large-scale enterprises that use Informatica." },
-    { title: "SAP SuccessFactors", outcomes: ["Gain expertise in SAP’s cloud-based HR and talent management system.","Learn configuration, employee lifecycle management, and reporting."], career: "Ideal for HRIS specialists and SAP consultants, enabling high-value HR digital transformation projects." },
-    { title: "Generative AI (Gen AI)", outcomes: ["Understand large language models, prompt engineering, and AI content creation.","Apply AI tools for automation, analytics, and innovation."], career: "Equips learners for cutting-edge AI integration in business workflows, boosting efficiency and creativity." },
-    { title: "Snowflake + DBT + ADF", outcomes: ["Build scalable data warehouses in Snowflake.","Use DBT for transformation and Azure Data Factory for orchestration."], career: "In-demand in cloud data engineering, enabling streamlined data pipelines across Azure and Snowflake ecosystems." },
-    { title: "Power BI + SQL", outcomes: ["Create interactive dashboards and reports in Power BI.","Write optimized SQL queries for data extraction."], career: "Key skill set for BI developers, analysts, and data storytellers in virtually every industry." },
-    { title: "Azure Data Engineering + Databricks with Spark", outcomes: ["Process big data using Spark in Databricks.","Implement data lakes, pipelines, and analytics in Azure."], career: "Highly valued in organizations building cloud-native data platforms." },
-    { title: "AWS Data Engineering", outcomes: ["Design and manage data pipelines using AWS services like Glue, Redshift, and Athena.","Implement scalable analytics solutions."], career: "Positions learners for roles in cloud data engineering on AWS." },
-    { title: "AWS + DevOps", outcomes: ["Implement CI/CD pipelines, container orchestration, and infrastructure-as-code in AWS.","Automate deployment workflows."], career: "In demand for cloud engineers and DevOps specialists." },
-    { title: "AI & Machine Learning Training", outcomes: ["Build and train predictive models.","Apply supervised, unsupervised, and deep learning techniques."], career: "Opens career paths in AI engineering, data science, and analytics." },
-    { title: "SAP S/4HANA FICO", outcomes: ["Configure SAP Finance and Controlling modules.","Run reports and manage financial processes in S/4HANA."], career: "Highly valued in finance and ERP consultancy roles." },
-    { title: "Salesforce Admin", outcomes: ["Manage Salesforce users, permissions, and workflows.","Create reports and dashboards."], career: "Essential entry point for Salesforce ecosystem careers." },
-    { title: "Salesforce Admin & Developer", outcomes: ["Administer Salesforce and develop custom applications using Apex and Lightning.","Integrate Salesforce with third-party systems."], career: "Covers both configuration and development for a complete Salesforce career path." },
-    { title: "Cyber Security", outcomes: ["Learn network security, threat detection, and incident response.","Master cybersecurity tools and compliance frameworks."], career: "Qualifies learners for security analyst, penetration tester, or SOC roles." },
-    { title: "Tableau + SQL", outcomes: ["Build advanced visualizations in Tableau.","Write SQL queries for analytics."], career: "In-demand skills for data visualization and BI reporting jobs." },
-    { title: "Python Fullstack", outcomes: ["Develop front-end and back-end applications using Python, Django/Flask, and JS frameworks.","Deploy fullstack solutions to production."], career: "Versatile skill set for both startup and enterprise development teams." },
-    { title: "Software Testing (Manual + Automation)", outcomes: ["Learn test case design, execution, and defect reporting.","Use automation tools like Selenium, JUnit, and Postman."], career: "Essential for QA engineers, ensuring product quality and reliability in IT projects." },
+    {
+      title: "Informatica PowerCenter",
+      outcomes: [
+        "Master ETL workflows, transformations, and performance tuning.",
+        "Build enterprise-level data integration pipelines.",
+      ],
+      career:
+        "Prepares learners for data engineering and analytics roles in large-scale enterprises that use Informatica.",
+      image: "/courses/informatica.jpg",
+    },
+    {
+      title: "SAP SuccessFactors",
+      outcomes: [
+        "Gain expertise in SAP’s cloud-based HR and talent management system.",
+        "Learn configuration, employee lifecycle management, and reporting.",
+      ],
+      career:
+        "Ideal for HRIS specialists and SAP consultants, enabling high-value HR digital transformation projects.",
+      image: "/courses/successfactors.jpg",
+    },
+    {
+      title: "Generative AI (Gen AI)",
+      outcomes: [
+        "Understand large language models, prompt engineering, and AI content creation.",
+        "Apply AI tools for automation, analytics, and innovation.",
+      ],
+      career:
+        "Equips learners for cutting-edge AI integration in business workflows, boosting efficiency and creativity.",
+      image: "/courses/genai.jpg",
+    },
+    {
+      title: "Snowflake + DBT + ADF",
+      outcomes: [
+        "Build scalable data warehouses in Snowflake.",
+        "Use DBT for transformation and Azure Data Factory for orchestration.",
+      ],
+      career:
+        "In-demand in cloud data engineering, enabling streamlined data pipelines across Azure and Snowflake ecosystems.",
+      image: "/courses/snowflake-dbt-adf.jpg",
+    },
+    {
+      title: "Power BI + SQL",
+      outcomes: [
+        "Create interactive dashboards and reports in Power BI.",
+        "Write optimized SQL queries for data extraction.",
+      ],
+      career:
+        "Key skill set for BI developers, analysts, and data storytellers in virtually every industry.",
+      image: "/courses/powerbi-sql.jpg",
+    },
+    {
+      title: "Azure Data Engineering + Databricks with Spark",
+      outcomes: [
+        "Process big data using Spark in Databricks.",
+        "Implement data lakes, pipelines, and analytics in Azure.",
+      ],
+      career:
+        "Highly valued in organizations building cloud-native data platforms.",
+      image: "/courses/azure-de-databricks.jpg",
+    },
+    {
+      title: "AWS Data Engineering",
+      outcomes: [
+        "Design and manage data pipelines using AWS services like Glue, Redshift, and Athena.",
+        "Implement scalable analytics solutions.",
+      ],
+      career: "Positions learners for roles in cloud data engineering on AWS.",
+      image: "/courses/aws-de.jpg",
+    },
+    {
+      title: "AWS + DevOps",
+      outcomes: [
+        "Implement CI/CD pipelines, container orchestration, and infrastructure-as-code in AWS.",
+        "Automate deployment workflows.",
+      ],
+      career: "In demand for cloud engineers and DevOps specialists.",
+      image: "/courses/aws-devops.jpg",
+    },
+    {
+      title: "AI & Machine Learning Training",
+      outcomes: [
+        "Build and train predictive models.",
+        "Apply supervised, unsupervised, and deep learning techniques.",
+      ],
+      career: "Opens career paths in AI engineering, data science, and analytics.",
+      image: "/courses/ai-ml.jpg",
+    },
+    {
+      title: "SAP S/4HANA FICO",
+      outcomes: [
+        "Configure SAP Finance and Controlling modules.",
+        "Run reports and manage financial processes in S/4HANA.",
+      ],
+      career: "Highly valued in finance and ERP consultancy roles.",
+      image: "/courses/sap-fico.jpg",
+    },
+    {
+      title: "Salesforce Admin",
+      outcomes: [
+        "Manage Salesforce users, permissions, and workflows.",
+        "Create reports and dashboards.",
+      ],
+      career: "Essential entry point for Salesforce ecosystem careers.",
+      image: "/courses/salesforce-admin.jpg",
+    },
+    {
+      title: "Salesforce Admin & Developer",
+      outcomes: [
+        "Administer Salesforce and develop custom applications using Apex and Lightning.",
+        "Integrate Salesforce with third-party systems.",
+      ],
+      career:
+        "Covers both configuration and development for a complete Salesforce career path.",
+      image: "/courses/salesforce-admin-dev.jpg",
+    },
+    {
+      title: "Cyber Security",
+      outcomes: [
+        "Learn network security, threat detection, and incident response.",
+        "Master cybersecurity tools and compliance frameworks.",
+      ],
+      career:
+        "Qualifies learners for security analyst, penetration tester, or SOC roles.",
+      image: "/courses/cyber-security.jpg",
+    },
+    {
+      title: "Tableau + SQL",
+      outcomes: [
+        "Build advanced visualizations in Tableau.",
+        "Write SQL queries for analytics.",
+      ],
+      career:
+        "In-demand skills for data visualization and BI reporting jobs.",
+      image: "/courses/tableau-sql.jpg",
+    },
+    {
+      title: "Python Fullstack",
+      outcomes: [
+        "Develop front-end and back-end applications using Python, Django/Flask, and JS frameworks.",
+        "Deploy fullstack solutions to production.",
+      ],
+      career:
+        "Versatile skill set for both startup and enterprise development teams.",
+      image: "/courses/python-fullstack.jpg",
+    },
+    {
+      title: "Software Testing (Manual + Automation)",
+      outcomes: [
+        "Learn test case design, execution, and defect reporting.",
+        "Use automation tools like Selenium, JUnit, and Postman.",
+      ],
+      career:
+        "Essential for QA engineers, ensuring product quality and reliability in IT projects.",
+      image: "/courses/software-testing.jpg",
+    },
   ];
 
-  // 🔍 Filter courses based on search
   const filteredCourses = courses.filter((course) =>
     course.title.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
     <div className="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
-      {/* ✅ Navbar */}
       <Navbar />
-
       <main className="flex-grow">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <h1 className="text-4xl font-bold text-center mb-4">All Courses</h1>
@@ -44,7 +180,7 @@ const CoursesPage = () => {
             advance your career.
           </p>
 
-          {/* 🔍 Search Bar */}
+          {/* Search */}
           <div className="flex justify-center mb-12">
             <input
               type="text"
@@ -64,6 +200,7 @@ const CoursesPage = () => {
                   title={course.title}
                   outcomes={course.outcomes}
                   career={course.career}
+                  image={course.image}   // ✅ pass image
                 />
               ))
             ) : (
@@ -74,8 +211,6 @@ const CoursesPage = () => {
           </div>
         </div>
       </main>
-
-      {/* ✅ Footer */}
       <Footer />
     </div>
   );

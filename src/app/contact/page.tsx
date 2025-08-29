@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
+import { Phone, Mail, MessageSquare } from "lucide-react";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +14,9 @@ const ContactPage = () => {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -41,78 +45,109 @@ const ContactPage = () => {
   return (
     <>
       <Navbar />
-      <main className="max-w-7xl mx-auto px-6 py-16">
-        <h1 className="text-4xl font-bold text-center mb-4">Get in Touch with SkillBee</h1>
-        <p className="text-lg text-gray-600 text-center mb-12">
-          Fill out the form below or reach out via WhatsApp for quick support.
-        </p>
+      <main className="bg-gray-50">
+        <section className="max-w-7xl mx-auto px-6 py-16">
+          {/* Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl font-extrabold text-gray-900 text-center mb-4"
+          >
+            Get in Touch with <span className="text-blue-900">SkillBee</span>
+          </motion.h1>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full border px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-900"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full border px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-900"
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Your Phone Number"
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full border px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-900"
-            />
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              className="w-full border px-4 py-2 rounded h-32 focus:outline-none focus:ring-2 focus:ring-blue-900"
-            />
-            <button
-              type="submit"
-              className="bg-blue-900 text-white px-6 py-3 rounded hover:bg-blue-800"
-            >
-              Send Message
-            </button>
-            {submitted && <p className="text-green-600 mt-2">Message sent successfully!</p>}
-          </form>
+          <p className="text-lg text-gray-700 text-center mb-12 max-w-2xl mx-auto">
+            Have questions about our programs? Fill out the form or reach us
+            directly — we’d love to hear from you.
+          </p>
 
-          {/* Contact Info & WhatsApp */}
-          <div className="flex flex-col justify-center space-y-6">
-            <div>
-              <h2 className="text-xl font-semibold mb-2">Email</h2>
-              <p>info@skillbee.co.uk</p>
-            </div>
-            <div>
-              <h2 className="text-xl font-semibold mb-2">Phone</h2>
-              <p>+447915266698</p>
-            </div>
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600"
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <motion.form
+              onSubmit={handleSubmit}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="space-y-4 bg-white p-8 rounded-2xl shadow-lg"
             >
-              Chat via WhatsApp
-            </a>
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-300 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-900"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-300 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-900"
+              />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Your Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full border border-gray-300 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-900"
+              />
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-300 px-4 py-3 rounded-lg text-gray-900 h-32 focus:outline-none focus:ring-2 focus:ring-blue-900"
+              />
+              <button
+                type="submit"
+                className="w-full bg-blue-900 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-800 transition"
+              >
+                Send Message
+              </button>
+              {submitted && (
+                <p className="text-green-600 mt-2 font-medium">
+                  ✅ Message sent successfully!
+                </p>
+              )}
+            </motion.form>
+
+            {/* Contact Info */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-white p-8 rounded-2xl shadow-lg flex flex-col justify-center space-y-6"
+            >
+              <div>
+                <h2 className="text-xl font-bold text-blue-900 mb-2 flex items-center gap-2">
+                  <Mail size={20} /> Email
+                </h2>
+                <p className="text-gray-800">info@skillbee.co.uk</p>
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-blue-900 mb-2 flex items-center gap-2">
+                  <Phone size={20} /> Phone
+                </h2>
+                <p className="text-gray-800">+44 7915 266698</p>
+              </div>
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 justify-center bg-green-500 text-white font-medium px-6 py-3 rounded-lg hover:bg-green-600 transition"
+              >
+                <MessageSquare size={20} /> Chat via WhatsApp
+              </a>
+            </motion.div>
           </div>
-        </div>
+        </section>
       </main>
       <Footer />
     </>

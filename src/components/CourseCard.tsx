@@ -1,22 +1,37 @@
 "use client";
 import React, { useState } from "react";
-import { CheckCircle } from "lucide-react"; 
+import { CheckCircle } from "lucide-react";
 import EnquiryForm from "./EnquiryForm";
 import WhatsAppButton from "./WhatsAppButton";
+import Image from "next/image";
 
 interface CourseCardProps {
   title: string;
   outcomes: string[];
-  career?: string; // ✅ optional now
-  whatsappMessage?: string; // ✅ optional now
+  career?: string;
+  whatsappMessage?: string;
+  image?: string; // ✅ NEW: image path (e.g., /courses/xyz.jpg)
 }
 
-export default function CourseCard({ title, outcomes, whatsappMessage, career }: CourseCardProps) {
+export default function CourseCard({
+  title,
+  outcomes,
+  whatsappMessage,
+  career,
+  image,
+}: CourseCardProps) {
   const [openForm, setOpenForm] = useState(false);
 
   return (
     <>
       <div className="bg-white shadow-md hover:shadow-xl transition rounded-2xl p-6 flex flex-col justify-between h-full border border-gray-100">
+        {/* Image (optional but recommended) */}
+        {image && (
+          <div className="relative w-full h-44 md:h-48 mb-4 rounded-xl overflow-hidden bg-gray-100">
+            <Image src={image} alt={title} fill className="object-cover" />
+          </div>
+        )}
+
         {/* Title */}
         <h3 className="text-2xl font-semibold text-gray-900 mb-4">{title}</h3>
 
@@ -33,7 +48,8 @@ export default function CourseCard({ title, outcomes, whatsappMessage, career }:
         {/* Career (render only if provided) */}
         {career && (
           <p className="text-sm text-gray-800 mb-6">
-            <span className="font-medium text-gray-900">Career Path:</span> {career}
+            <span className="font-medium text-gray-900">Career Path:</span>{" "}
+            {career}
           </p>
         )}
 
@@ -49,7 +65,9 @@ export default function CourseCard({ title, outcomes, whatsappMessage, career }:
         </div>
       </div>
 
-      {openForm && <EnquiryForm courseName={title} onClose={() => setOpenForm(false)} />}
+      {openForm && (
+        <EnquiryForm courseName={title} onClose={() => setOpenForm(false)} />
+      )}
     </>
   );
 }
