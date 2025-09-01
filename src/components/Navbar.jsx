@@ -25,9 +25,9 @@ const Navbar = () => {
           <Image
             src="/logo.png"
             alt="SkillBee Logo"
-            width={80}
-            height={80}
-            className="object-contain h-16 w-16"
+            width={60}
+            height={60}
+            className="object-contain h-14 w-14"
           />
           <span className="text-2xl font-bold text-yellow-500">SkillBee</span>
         </Link>
