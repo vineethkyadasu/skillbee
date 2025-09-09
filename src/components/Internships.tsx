@@ -16,7 +16,7 @@ const Internships = () => {
           </p>
 
           <a
-            href="https://forms.office.com/Pages/ResponsePage.aspx?id=hzImKN-JGUKTC487erbepZiVHI-5MRlBlgppUWtOholUNktBSjhTUlEwVzQyTkhLRk4zRjFVNkRTMS4u"
+            href="https://forms.gle/E2iUcxUDsj7vXtN86"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg shadow-md hover:bg-blue-700 transition"
