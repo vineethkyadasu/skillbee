@@ -9,7 +9,51 @@ const CoursesPage = () => {
 
   const courses = [
     {
+      title: "Generative AI (Gen AI)",
+      price: "£499",
+      outcomes: [
+        "Understand large language models, prompt engineering, and AI content creation.",
+        "Apply AI tools for automation, analytics, and innovation.",
+      ],
+      career:
+        "Equips learners for cutting-edge AI integration in business workflows, boosting efficiency and creativity.",
+      image: "/courses/genai.jpg",
+    },
+    {
+      title: "Power BI + SQL",
+      price: "£399",
+      outcomes: [
+        "Create interactive dashboards and reports in Power BI.",
+        "Write optimized SQL queries for data extraction.",
+      ],
+      career:
+        "Key skill set for BI developers, analysts, and data storytellers in virtually every industry.",
+      image: "/courses/powerbi-sql.jpg",
+    },
+    {
+      title: "AWS Data Engineering",
+      price: "£699",
+      outcomes: [
+        "Design and manage data pipelines using AWS services like Glue, Redshift, and Athena.",
+        "Implement scalable analytics solutions.",
+      ],
+      career: "Positions learners for roles in cloud data engineering on AWS.",
+      image: "/courses/aws-de.jpg",
+    },
+    {
+      title: "Azure Data Engineering + Databricks with Spark",
+      price: "£599",
+      outcomes: [
+        "Process big data using Spark in Databricks.",
+        "Implement data lakes, pipelines, and analytics in Azure.",
+      ],
+      career:
+        "Highly valued in organizations building cloud-native data platforms.",
+      image: "/courses/azure-de-databricks.jpg",
+    },
+    {
       title: "Informatica PowerCenter",
+      price: "£499",
       outcomes: [
         "Master ETL workflows, transformations, and performance tuning.",
         "Build enterprise-level data integration pipelines.",
@@ -20,8 +64,9 @@ const CoursesPage = () => {
     },
     {
       title: "SAP SuccessFactors",
+      price: "£699",
       outcomes: [
-        "Gain expertise in SAP’s cloud-based HR and talent management system.",
+        "Gain expertise in SAP's cloud-based HR and talent management system.",
         "Learn configuration, employee lifecycle management, and reporting.",
       ],
       career:
@@ -29,17 +74,8 @@ const CoursesPage = () => {
       image: "/courses/successfactors.jpg",
     },
     {
-      title: "Generative AI (Gen AI)",
-      outcomes: [
-        "Understand large language models, prompt engineering, and AI content creation.",
-        "Apply AI tools for automation, analytics, and innovation.",
-      ],
-      career:
-        "Equips learners for cutting-edge AI integration in business workflows, boosting efficiency and creativity.",
-      image: "/courses/genai.jpg",
-    },
-    {
       title: "Snowflake + DBT + ADF",
+      price: "£499",
       outcomes: [
         "Build scalable data warehouses in Snowflake.",
         "Use DBT for transformation and Azure Data Factory for orchestration.",
@@ -49,36 +85,8 @@ const CoursesPage = () => {
       image: "/courses/snowflake-dbt-adf.jpg",
     },
     {
-      title: "Power BI + SQL",
-      outcomes: [
-        "Create interactive dashboards and reports in Power BI.",
-        "Write optimized SQL queries for data extraction.",
-      ],
-      career:
-        "Key skill set for BI developers, analysts, and data storytellers in virtually every industry.",
-      image: "/courses/powerbi-sql.jpg",
-    },
-    {
-      title: "Azure Data Engineering + Databricks with Spark",
-      outcomes: [
-        "Process big data using Spark in Databricks.",
-        "Implement data lakes, pipelines, and analytics in Azure.",
-      ],
-      career:
-        "Highly valued in organizations building cloud-native data platforms.",
-      image: "/courses/azure-de-databricks.jpg",
-    },
-    {
-      title: "AWS Data Engineering",
-      outcomes: [
-        "Design and manage data pipelines using AWS services like Glue, Redshift, and Athena.",
-        "Implement scalable analytics solutions.",
-      ],
-      career: "Positions learners for roles in cloud data engineering on AWS.",
-      image: "/courses/aws-de.jpg",
-    },
-    {
       title: "AWS + DevOps",
+      price: "£499",
       outcomes: [
         "Implement CI/CD pipelines, container orchestration, and infrastructure-as-code in AWS.",
         "Automate deployment workflows.",
@@ -88,15 +96,18 @@ const CoursesPage = () => {
     },
     {
       title: "AI & Machine Learning Training",
+      price: "£599",
       outcomes: [
         "Build and train predictive models.",
         "Apply supervised, unsupervised, and deep learning techniques.",
       ],
-      career: "Opens career paths in AI engineering, data science, and analytics.",
+      career:
+        "Opens career paths in AI engineering, data science, and analytics.",
       image: "/courses/ai-ml.jpg",
     },
     {
       title: "SAP S/4HANA FICO",
+      price: "£499",
       outcomes: [
         "Configure SAP Finance and Controlling modules.",
         "Run reports and manage financial processes in S/4HANA.",
@@ -106,6 +117,7 @@ const CoursesPage = () => {
     },
     {
       title: "Salesforce Admin",
+      price: "£499",
       outcomes: [
         "Manage Salesforce users, permissions, and workflows.",
         "Create reports and dashboards.",
@@ -115,6 +127,7 @@ const CoursesPage = () => {
     },
     {
       title: "Salesforce Admin & Developer",
+      price: "£799",
       outcomes: [
         "Administer Salesforce and develop custom applications using Apex and Lightning.",
         "Integrate Salesforce with third-party systems.",
@@ -125,6 +138,7 @@ const CoursesPage = () => {
     },
     {
       title: "Cyber Security",
+      price: "£499",
       outcomes: [
         "Learn network security, threat detection, and incident response.",
         "Master cybersecurity tools and compliance frameworks.",
@@ -135,6 +149,7 @@ const CoursesPage = () => {
     },
     {
       title: "Tableau + SQL",
+      price: "£399",
       outcomes: [
         "Build advanced visualizations in Tableau.",
         "Write SQL queries for analytics.",
@@ -144,7 +159,8 @@ const CoursesPage = () => {
       image: "/courses/tableau-sql.jpg",
     },
     {
-      title: "Python Fullstack",
+      title: "Python Full Stack Development",
+      price: "£399",
       outcomes: [
         "Develop front-end and back-end applications using Python, Django/Flask, and JS frameworks.",
         "Deploy fullstack solutions to production.",
@@ -155,6 +171,7 @@ const CoursesPage = () => {
     },
     {
       title: "Software Testing (Manual + Automation)",
+      price: "£599",
       outcomes: [
         "Learn test case design, execution, and defect reporting.",
         "Use automation tools like Selenium, JUnit, and Postman.",
@@ -162,6 +179,28 @@ const CoursesPage = () => {
       career:
         "Essential for QA engineers, ensuring product quality and reliability in IT projects.",
       image: "/courses/software-testing.jpg",
+    },
+    {
+      title: "Data Science",
+      price: "£999",
+      outcomes: [
+        "Master statistical analysis, machine learning, and data visualization techniques.",
+        "Work with real-world datasets to build predictive models and derive actionable insights.",
+      ],
+      career:
+        "Opens doors to data scientist, ML engineer, and analytics lead positions across industries.",
+      image: "/courses/ai-ml.jpg",
+    },
+    {
+      title: "Data Analysis",
+      price: "£599",
+      outcomes: [
+        "Learn data cleaning, transformation, and exploratory analysis using Python and Excel.",
+        "Create impactful reports and dashboards for business decision-making.",
+      ],
+      career:
+        "Ideal for aspiring data analysts, business analysts, and reporting specialists.",
+      image: "/courses/powerbi-sql.jpg",
     },
   ];
 
@@ -200,7 +239,8 @@ const CoursesPage = () => {
                   title={course.title}
                   outcomes={course.outcomes}
                   career={course.career}
-                  image={course.image}   // ✅ pass image
+                  price={course.price}
+                  image={course.image}
                 />
               ))
             ) : (

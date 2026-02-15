@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Phone, Mail, MessageSquare } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -38,10 +38,6 @@ const ContactPage = () => {
     }
   };
 
-  const whatsappLink = `https://wa.me/?text=${encodeURIComponent(
-    "Hi SkillBee, I’d like to know more about your programs."
-  )}`;
-
   return (
     <>
       <Navbar />
@@ -59,7 +55,7 @@ const ContactPage = () => {
 
           <p className="text-lg text-gray-700 text-center mb-12 max-w-2xl mx-auto">
             Have questions about our programs? Fill out the form or reach us
-            directly — we’d love to hear from you.
+            directly — we&apos;d love to hear from you.
           </p>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -137,14 +133,6 @@ const ContactPage = () => {
                 </h2>
                 <p className="text-gray-800">+44 7915 266698</p>
               </div>
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 justify-center bg-green-500 text-white font-medium px-6 py-3 rounded-lg hover:bg-green-600 transition"
-              >
-                <MessageSquare size={20} /> Chat via WhatsApp
-              </a>
             </motion.div>
           </div>
         </section>
