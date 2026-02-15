@@ -2,22 +2,21 @@
 import React, { useState } from "react";
 import { CheckCircle } from "lucide-react";
 import EnquiryForm from "./EnquiryForm";
-import WhatsAppButton from "./WhatsAppButton";
 import Image from "next/image";
 
 interface CourseCardProps {
   title: string;
   outcomes: string[];
   career?: string;
-  whatsappMessage?: string;
-  image?: string; // ✅ NEW: image path (e.g., /courses/xyz.jpg)
+  price?: string;
+  image?: string;
 }
 
 export default function CourseCard({
   title,
   outcomes,
-  whatsappMessage,
   career,
+  price,
   image,
 }: CourseCardProps) {
   const [openForm, setOpenForm] = useState(false);
@@ -33,7 +32,14 @@ export default function CourseCard({
         )}
 
         {/* Title */}
-        <h3 className="text-2xl font-semibold text-gray-900 mb-4">{title}</h3>
+        <h3 className="text-2xl font-semibold text-gray-900 mb-2">{title}</h3>
+
+        {/* Price */}
+        {price && (
+          <p className="text-xl font-bold text-blue-900 mb-4">
+            Price: {price}
+          </p>
+        )}
 
         {/* Outcomes */}
         <ul className="space-y-2 mb-4 text-sm text-gray-700">
@@ -53,15 +59,14 @@ export default function CourseCard({
           </p>
         )}
 
-        {/* Buttons */}
-        <div className="flex gap-3 mt-auto">
+        {/* Enroll Now Button */}
+        <div className="mt-auto">
           <button
             onClick={() => setOpenForm(true)}
-            className="flex-1 bg-blue-900 text-white px-4 py-2.5 rounded-lg font-medium hover:bg-blue-800 transition"
+            className="w-full bg-blue-900 text-white px-4 py-2.5 rounded-lg font-medium hover:bg-blue-800 transition"
           >
-            Enquire Now
+            Enroll Now
           </button>
-          {whatsappMessage && <WhatsAppButton message={whatsappMessage} />}
         </div>
       </div>
 
