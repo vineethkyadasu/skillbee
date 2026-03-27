@@ -2,7 +2,6 @@
   "name": "skillbee-website",
   "version": "0.1.0",
   "private": true,
-  "author": "sandanitin <sandanithin2@gmail.com>",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
