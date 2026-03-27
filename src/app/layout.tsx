@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "SkillBee – Learn Skills, Build Careers",
   description: "SkillBee offers high-quality online courses designed to help you achieve your career goals.",
 };
